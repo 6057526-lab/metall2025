@@ -1,3 +1,4 @@
+import Image from "next/image";
 import styles from "./page.module.css";
 
 const heroHighlights = [
@@ -115,6 +116,12 @@ const capabilities = [
       "Photo 3: Colored wheel",
       "Photo 4: Rolled sheet (thin)",
     ],
+    media: [
+      {
+        src: "/images/capabilities/extrusion/NUROL-Cam3_V1.png",
+        alt: "Extrusion press CAM view",
+      },
+    ],
   },
   {
     title: "Machining",
@@ -149,6 +156,13 @@ const capabilities = [
       "Photo 3: multi-color finish",
       "Photo 4: polished surface",
     ],
+  },
+];
+
+const partnerLogos = [
+  {
+    src: "/images/logos/reems-partner-logo-01.jpg",
+    alt: "REEMS partner logo",
   },
 ];
 
@@ -284,6 +298,21 @@ export default function Home() {
                     )}
                   </div>
                 )}
+                {capability.media && capability.media.length > 0 && (
+                  <div className={styles.capabilityMedia}>
+                    {capability.media.map((mediaItem) => (
+                      <div key={mediaItem.src} className={styles.mediaItem}>
+                        <Image
+                          src={mediaItem.src}
+                          alt={mediaItem.alt}
+                          fill
+                          sizes="(max-width: 768px) 100vw, 320px"
+                          className={styles.mediaImage}
+                        />
+                      </div>
+                    ))}
+                  </div>
+                )}
               </article>
             ))}
           </div>
@@ -311,6 +340,32 @@ export default function Home() {
             Send us your wheel specification
           </a>
         </section>
+
+        {partnerLogos.length > 0 && (
+          <section className={`${styles.section} ${styles.partnerSection}`} id="partners">
+            <div className={styles.sectionHeader}>
+              <p className={styles.tag}>Partners</p>
+              <h2 className={styles.sectionHeading}>Programs & Collaborations</h2>
+              <p className={styles.sectionSubheading}>
+                Trusted by OEM and Tier-1 engineering teams across mobility, aerospace and advanced
+                industrial sectors.
+              </p>
+            </div>
+            <div className={styles.logoGrid}>
+              {partnerLogos.map((logo) => (
+                <div key={logo.src} className={styles.logoCard}>
+                  <Image
+                    src={logo.src}
+                    alt={logo.alt}
+                    width={200}
+                    height={120}
+                    className={styles.logoImage}
+                  />
+                </div>
+              ))}
+            </div>
+          </section>
+        )}
 
         <section className={`${styles.section} ${styles.companySection}`} id="company">
           <div className={styles.sectionHeader}>
