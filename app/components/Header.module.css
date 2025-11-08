@@ -1,0 +1,132 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid #e5e7eb;
+  z-index: 1000;
+  transition: background 0.3s ease;
+}
+
+.headerInner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 72px;
+}
+
+.logo {
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #111827;
+}
+
+.logoAccent {
+  color: #2563eb;
+}
+
+.desktopNav {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.navButton {
+  appearance: none;
+  background: none;
+  border: none;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #4b5563;
+  cursor: pointer;
+  position: relative;
+  padding: 8px 0;
+  transition: color 0.2s ease;
+}
+
+.navButton:hover,
+.navButtonActive {
+  color: #111827;
+}
+
+.navButtonActive::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -6px;
+  height: 2px;
+  background: #2563eb;
+  border-radius: 9999px;
+}
+
+.mobileToggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  width: 44px;
+  height: 44px;
+  background: none;
+  border: 1px solid #e5e7eb;
+  border-radius: 9999px;
+  cursor: pointer;
+}
+
+.mobileToggle span {
+  width: 20px;
+  height: 2px;
+  background: #111827;
+  transition: transform 0.2s ease;
+}
+
+.mobileNav {
+  display: grid;
+  gap: 12px;
+  padding: 20px 24px 32px;
+  background: rgba(255, 255, 255, 0.98);
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.mobileButton {
+  appearance: none;
+  border: none;
+  background: none;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #374151;
+  padding: 12px 0;
+  cursor: pointer;
+  border-bottom: 1px solid rgba(229, 231, 235, 0.6);
+}
+
+.mobileButton:last-child {
+  border-bottom: none;
+}
+
+@media (max-width: 900px) {
+  .headerInner {
+    padding: 0 20px;
+    height: 64px;
+  }
+
+  .desktopNav {
+    display: none;
+  }
+
+  .mobileToggle {
+    display: flex;
+  }
+}

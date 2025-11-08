@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import styles from "./Header.module.css";
 
 const navigationItems = [
   { href: "#top", label: "Home" },
@@ -15,12 +16,12 @@ const navigationItems = [
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState("");
+  const [activeSection, setActiveSection] = useState("top");
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = navigationItems.map(item => item.href.substring(1));
-      const scrollPosition = window.scrollY + 100;
+      const sections = navigationItems.map((item) => item.href.substring(1));
+      const scrollPosition = window.scrollY + 120;
 
       for (const section of sections) {
         const element = document.getElementById(section);
@@ -28,14 +29,15 @@ export default function Header() {
           const { offsetTop, offsetHeight } = element;
           if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
             setActiveSection(section);
-            break;
+            return;
           }
         }
       }
+      setActiveSection("top");
     };
 
     window.addEventListener("scroll", handleScroll);
-    handleScroll(); // Initial check
+    handleScroll();
 
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -49,45 +51,49 @@ export default function Header() {
   };
 
   return (
-    <header className="header">
-      <div className="headerContainer">
-        <Link href="/" className="logo">
-          <span className="logoText">REEMS</span>
+    <header className={styles.header}>
+      <div className={styles.headerInner}>
+        <Link href="/" className={styles.logo} onClick={() => scrollToSection("#top")}>
+          REEMS<span className={styles.logoAccent}>.</span>
         </Link>
 
-        {/* Desktop Navigation */}
-        <nav className="desktopNav">
-          {navigationItems.map((item) => (
-            <button
-              key={item.href}
-              onClick={() => scrollToSection(item.href)}
-              className={`navLink ${activeSection === item.href.substring(1) ? "active" : ""}`}
-            >
-              {item.label}
-            </button>
-          ))}
+        <nav className={styles.desktopNav} aria-label="Primary navigation">
+          {navigationItems.map((item) => {
+            const isActive = activeSection === item.href.substring(1);
+            return (
+              <button
+                key={item.href}
+                type="button"
+                onClick={() => scrollToSection(item.href)}
+                className={`${styles.navButton} ${isActive ? styles.navButtonActive : ""}`}
+              >
+                {item.label}
+              </button>
+            );
+          })}
         </nav>
 
-        {/* Mobile Menu Button */}
         <button
-          className="mobileMenuButton"
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
-          aria-label="Toggle menu"
+          type="button"
+          className={styles.mobileToggle}
+          onClick={() => setIsMenuOpen((prev) => !prev)}
+          aria-label="Toggle navigation menu"
+          aria-expanded={isMenuOpen}
         >
-          <span className="hamburgerLine"></span>
-          <span className="hamburgerLine"></span>
-          <span className="hamburgerLine"></span>
+          <span />
+          <span />
+          <span />
         </button>
       </div>
 
-      {/* Mobile Navigation */}
       {isMenuOpen && (
-        <nav className="mobileNav">
+        <nav className={styles.mobileNav} aria-label="Mobile navigation">
           {navigationItems.map((item) => (
             <button
               key={item.href}
+              type="button"
               onClick={() => scrollToSection(item.href)}
-              className={`mobileNavLink ${activeSection === item.href.substring(1) ? "active" : ""}`}
+              className={styles.mobileButton}
             >
               {item.label}
             </button>
