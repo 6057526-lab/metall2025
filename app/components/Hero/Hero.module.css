@@ -1,0 +1,165 @@
+.hero {
+  position: relative;
+  background: var(--primary);
+  color: white;
+  padding: 120px 40px;
+  display: flex;
+  align-items: center;
+  min-height: 80vh;
+}
+
+.heroInner {
+  max-width: 1200px;
+  margin: 0 auto;
+  flex: 1;
+}
+
+.tag {
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--accent);
+  margin-bottom: 20px;
+}
+
+.headline {
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 1.1;
+  margin-bottom: 24px;
+  max-width: 800px;
+}
+
+.subheadline {
+  font-size: 24px;
+  line-height: 1.4;
+  margin-bottom: 32px;
+  opacity: 0.9;
+  max-width: 700px;
+}
+
+.description {
+  font-size: 18px;
+  line-height: 1.6;
+  margin-bottom: 40px;
+  max-width: 600px;
+}
+
+.ctaRow {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 60px;
+}
+
+.primaryButton,
+.secondaryButton,
+.calloutButton {
+  display: inline-flex;
+  align-items: center;
+  padding: 12px 24px;
+  border-radius: 4px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.2s;
+  cursor: pointer;
+  border: 2px solid transparent;
+}
+
+.primaryButton {
+  background: var(--accent);
+  color: white;
+}
+
+.primaryButton:hover {
+  background: #0056b3;
+}
+
+.secondaryButton {
+  background: transparent;
+  color: white;
+  border-color: white;
+}
+
+.secondaryButton:hover {
+  background: white;
+  color: var(--primary);
+}
+
+.calloutButton {
+  background: white;
+  color: var(--primary);
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.calloutButton:hover {
+  background: var(--accent);
+  color: white;
+}
+
+.heroAside {
+  max-width: 400px;
+  margin-left: 80px;
+}
+
+.secondaryDescription {
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 32px;
+}
+
+.featureList {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 40px 0;
+}
+
+.featureItem {
+  padding: 8px 0;
+  font-weight: 500;
+}
+
+.featureItem:before {
+  content: "•";
+  color: var(--accent);
+  margin-right: 12px;
+}
+
+@media (max-width: 768px) {
+  .hero {
+    flex-direction: column;
+    padding: 80px 24px;
+    text-align: center;
+  }
+
+  .heroInner {
+    margin-bottom: 40px;
+  }
+
+  .headline {
+    font-size: 36px;
+  }
+
+  .subheadline {
+    font-size: 20px;
+  }
+
+  .description {
+    font-size: 16px;
+  }
+
+  .ctaRow {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .heroAside {
+    margin-left: 0;
+    max-width: 100%;
+  }
+
+  .featureItem {
+    text-align: left;
+  }
+}

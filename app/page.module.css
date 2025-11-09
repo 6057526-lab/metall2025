@@ -19,23 +19,7 @@
   padding-top: 90px;
 }
 
-/* Hero Section */
-.hero {
-  position: relative;
-  background: var(--primary);
-  color: white;
-  padding: 120px 40px;
-  display: flex;
-  align-items: center;
-  min-height: 80vh;
-}
-
-.heroInner {
-  max-width: 1200px;
-  margin: 0 auto;
-  flex: 1;
-}
-
+/* Shared Elements */
 .tag {
   font-size: 14px;
   font-weight: 600;
@@ -45,38 +29,9 @@
   margin-bottom: 20px;
 }
 
-.headline {
-  font-size: 48px;
-  font-weight: 700;
-  line-height: 1.1;
-  margin-bottom: 24px;
-  max-width: 800px;
-}
-
-.subheadline {
-  font-size: 24px;
-  line-height: 1.4;
-  margin-bottom: 32px;
-  opacity: 0.9;
-  max-width: 700px;
-}
-
-.description {
-  font-size: 18px;
-  line-height: 1.6;
-  margin-bottom: 40px;
-  max-width: 600px;
-}
-
-.ctaRow {
-  display: flex;
-  gap: 16px;
-  margin-bottom: 60px;
-}
-
+/* CTA Buttons */
 .primaryButton,
-.secondaryButton,
-.calloutButton {
+.secondaryButton {
   display: inline-flex;
   align-items: center;
   padding: 12px 24px;
@@ -106,46 +61,6 @@
 .secondaryButton:hover {
   background: white;
   color: var(--primary);
-}
-
-.calloutButton {
-  background: white;
-  color: var(--primary);
-  font-size: 16px;
-  font-weight: 600;
-}
-
-.calloutButton:hover {
-  background: var(--accent);
-  color: white;
-}
-
-.heroAside {
-  max-width: 400px;
-  margin-left: 80px;
-}
-
-.secondaryDescription {
-  font-size: 16px;
-  line-height: 1.6;
-  margin-bottom: 32px;
-}
-
-.featureList {
-  list-style: none;
-  padding: 0;
-  margin: 0 0 40px 0;
-}
-
-.featureItem {
-  padding: 8px 0;
-  font-weight: 500;
-}
-
-.featureItem:before {
-  content: "•";
-  color: var(--accent);
-  margin-right: 12px;
 }
 
 /* Section Styles */
@@ -418,30 +333,6 @@
 
 /* Responsive */
 @media (max-width: 768px) {
-  .hero {
-    flex-direction: column;
-    text-align: center;
-    padding: 80px 20px;
-  }
-
-  .heroAside {
-    margin-left: 0;
-    margin-top: 40px;
-  }
-
-  .ctaRow {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .headline {
-    font-size: 32px;
-  }
-
-  .subheadline {
-    font-size: 20px;
-  }
-
   .section {
     padding: 60px 20px;
   }

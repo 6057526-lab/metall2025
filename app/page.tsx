@@ -1,11 +1,6 @@
 import Image from "next/image";
+import Hero from "./components/Hero/Hero";
 import styles from "./page.module.css";
-
-const heroHighlights = [
-  "Lightweight Metal Expertise",
-  "End-to-End Engineering (Design → Simulation → Serial Production)",
-  "High-Performance Results (Strength, efficiency, certification)",
-];
 
 const marketSegments = [
   {
@@ -178,46 +173,7 @@ export default function Home() {
   return (
     <div className={styles.page}>
       <main className={styles.main}>
-        <section className={styles.hero} id="top">
-          <div className={styles.heroInner}>
-            <p className={styles.tag}>REEMS</p>
-            <h1 className={styles.headline}>Race & Engineering Elite Manufacturing Services</h1>
-            <p className={styles.subheadline}>
-              Advanced magnesium, aluminium and titanium solutions for high-performance automotive,
-              aerospace and industrial applications.
-            </p>
-            <p className={styles.description}>
-              REEMS combines engineering, proprietary forging and additive technologies to deliver
-              ultra-light, high-strength components — from forged wheels to aerospace brackets and
-              complex 3D-printed parts.
-            </p>
-            <div className={styles.ctaRow}>
-              <a className={styles.primaryButton} href="#capabilities">
-                Explore capabilities
-              </a>
-              <a className={styles.secondaryButton} href="#contact">
-                Request a project review
-              </a>
-            </div>
-          </div>
-          <aside className={styles.heroAside}>
-            <p className={styles.secondaryDescription}>
-              REEMS facilitates manufacturing services for high-performance industries — from
-              motorsport to aerospace — specializing in forged magnesium & aluminum components,
-              advanced prototyping, and full production solutions.
-            </p>
-            <ul className={styles.featureList}>
-              {heroHighlights.map((item) => (
-                <li key={item} className={styles.featureItem}>
-                  {item}
-                </li>
-              ))}
-            </ul>
-            <a className={styles.calloutButton} href="#contact">
-              Start your project
-            </a>
-          </aside>
-        </section>
+        <Hero />
 
         <section className={styles.section} id="market-segments">
           <div className={styles.sectionHeader}>
